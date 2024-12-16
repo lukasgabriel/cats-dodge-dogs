@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['src\\main.py'],
+    ['src/main.py'],
     pathex=[],
     binaries=[],
-    datas=[('.\\assets\\', 'assets')],
+    datas=[('./assets/', 'assets')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -28,11 +28,17 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=True,
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['assets\\ui\\icon.ico'],
+    icon=['assets/ui/icon.ico'],
+)
+app = BUNDLE(
+    exe,
+    name='Cats_Dodge_Dogs.app',
+    icon='./assets/ui/icon.ico',
+    bundle_identifier=None,
 )
